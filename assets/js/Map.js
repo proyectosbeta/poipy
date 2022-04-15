@@ -10,7 +10,12 @@ const file      = "./data/" + nameFile;
 const baseLayer = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
 });
+const baseMaps = {
+    "Open Street Map": baseLayer,
+};
+let overlayMaps;
 let map;
+let geoJsonLayer;
 
 const initMap = () => {
     map           = L.map("map", config).setView([lat, lng], zoom);
@@ -87,8 +92,8 @@ const onMapClick = (coords) => {
 }
 
 const addGeoJsonLayerWithClustering = (data) => {
-    const markers      = L.markerClusterGroup();
-    const geoJsonLayer = L.geoJson(data, {
+    const markers = L.markerClusterGroup();
+    geoJsonLayer  = L.geoJson(data, {
         pointToLayer: function(feature, latlng) {
             return L.circleMarker(latlng, {
                 radius     : 6,
@@ -102,6 +107,12 @@ const addGeoJsonLayerWithClustering = (data) => {
 
     markers.addLayer(geoJsonLayer);
     map.addLayer(markers);
+
+    overlayMaps = {
+        "Estaciones de servicio": markers
+    };
+    
+    L.control.layers(baseMaps, overlayMaps).addTo(map);
 };
 
 getGeoData(file).then(data => {
