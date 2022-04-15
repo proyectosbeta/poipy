@@ -3,5 +3,5 @@
 - Add favicon
 - Add LOGO
 - Update readme file.
-- Add windows about
-- Improve geojson performance
+- Add windows about.
+- Add search option.
