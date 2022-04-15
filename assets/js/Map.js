@@ -16,7 +16,7 @@ const initMap = () => {
     }).addTo(map);
 };
 
-async function getGeoData(url) {
+const getGeoData = async (url) => {
     let response = await fetch(url);
     let data     = await response.json();
 
