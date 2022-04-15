@@ -2,9 +2,11 @@ const config = {
     minZoom: 0,
     maxZoom: 18,
 };
-const zoom = 7;
-const lat  = -23.4965407;
-const lng  = -58.9319999;
+const zoom     = 7;
+const lat      = -23.4965407;
+const lng      = -58.9319999;
+const nameFile = 'stations.geojson';
+const file     = "./data/" + nameFile;
 let map;
 
 const initMap = () => {
@@ -14,13 +16,28 @@ const initMap = () => {
     }).addTo(map);
 };
 
-const addDataStationService = () => {
-    const nameFile = 'stations.geojson';
+async function getGeoData(url) {
+    let response = await fetch(url);
+    let data     = await response.json();
 
-    $.getJSON("./data/" + nameFile, function(data){
-        L.geoJson(data).addTo(map);
-    });
+    return data;
 };
 
+const addGeoJsonLayerWithClustering = (data) => {
+    const markers      = L.markerClusterGroup();
+    const geoJsonLayer = L.geoJson(data, {
+        onEachFeature: function (feature, layer) {
+            layer.bindPopup(feature.properties.distribuidor);
+        }
+    });
+
+    markers.addLayer(geoJsonLayer);
+    map.addLayer(markers);
+};
+
+getGeoData(file).then(data => {
+    addGeoJsonLayerWithClustering(data); 
+});
+
+// Start map.
 initMap();
-addDataStationService();
