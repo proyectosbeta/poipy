@@ -82,7 +82,7 @@ const onMapClick = (coords) => {
     };
 
     clickmark = L.circleMarker([latitude, longitude],{
-        radius     : 10,
+        radius     : 30,
         color      : "yellow",
         fillColor  :  "yellow",
         fillOpacity: 0.8
@@ -91,7 +91,7 @@ const onMapClick = (coords) => {
 
 const addControlMap = (markersStationService) => {
     const overlayMaps = {
-        "Estaciones de servicio": markersStationService
+        "&nbsp;<img src='./assets/img/fuel-station.png' width='24' height='28'>&nbsp;Estaciones de servicio": markersStationService
     };
     
     L.control.layers(baseMaps, overlayMaps).addTo(map);
@@ -101,12 +101,16 @@ const addGeoJsonLayerWithClustering = (data) => {
     const markersStationService = L.markerClusterGroup();
     const geoJsonLayer    = L.geoJson(data, {
         pointToLayer: function(feature, latlng) {
-            return L.circleMarker(latlng, {
-                radius     : 6,
-                opacity    : .5,
-                color      : "blue",
-                fillOpacity: 0.8
-            }).bindTooltip(feature.properties.distribuidor);
+            return L.marker(latlng, {
+                icon: L.icon({
+                  iconUrl    : "assets/img/fuel-station.png",
+                  iconSize   : [24, 28],
+                  iconAnchor : [12, 28],
+                  popupAnchor: [0, -25]
+                }),
+                title: feature.properties.distribuidor,
+                riseOnHover: true
+              });
         },
         onEachFeature: onEachFeature
     });

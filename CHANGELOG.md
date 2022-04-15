@@ -4,3 +4,4 @@
 - Add clustering in the service stations.
 - The sidebar is added to show information about the service stations.
 - Add group layers.
+- Add icon service stations.
