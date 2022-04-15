@@ -79,7 +79,7 @@ const onMapClick = (coords) => {
     };
 
     clickmark = L.circleMarker([latitude, longitude],{
-        radius     : 14,
+        radius     : 10,
         color      : "yellow",
         fillColor  :  "yellow",
         fillOpacity: 0.8
