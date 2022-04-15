@@ -13,12 +13,10 @@ const baseLayer = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.pn
 const baseMaps = {
     "Open Street Map": baseLayer,
 };
-let overlayMaps;
 let map;
-let geoJsonLayer;
 
 const initMap = () => {
-    map           = L.map("map", config).setView([lat, lng], zoom);
+    map = L.map("map", config).setView([lat, lng], zoom);
 
     baseLayer.addTo(map);
 };
@@ -89,11 +87,19 @@ const onMapClick = (coords) => {
         fillColor  :  "yellow",
         fillOpacity: 0.8
     }).addTo(map);
-}
+};
+
+const addControlMap = (markersStationService) => {
+    const overlayMaps = {
+        "Estaciones de servicio": markersStationService
+    };
+    
+    L.control.layers(baseMaps, overlayMaps).addTo(map);
+};
 
 const addGeoJsonLayerWithClustering = (data) => {
-    const markers = L.markerClusterGroup();
-    geoJsonLayer  = L.geoJson(data, {
+    const markersStationService = L.markerClusterGroup();
+    const geoJsonLayer    = L.geoJson(data, {
         pointToLayer: function(feature, latlng) {
             return L.circleMarker(latlng, {
                 radius     : 6,
@@ -105,19 +111,15 @@ const addGeoJsonLayerWithClustering = (data) => {
         onEachFeature: onEachFeature
     });
 
-    markers.addLayer(geoJsonLayer);
-    map.addLayer(markers);
-
-    overlayMaps = {
-        "Estaciones de servicio": markers
-    };
-    
-    L.control.layers(baseMaps, overlayMaps).addTo(map);
+    markersStationService.addLayer(geoJsonLayer);
+    map.addLayer(markersStationService);
+    addControlMap(markersStationService);
 };
 
 getGeoData(file).then(data => {
     addGeoJsonLayerWithClustering(data); 
 });
+
 
 // Start map.
 initMap();
