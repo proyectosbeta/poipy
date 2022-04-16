@@ -28,17 +28,17 @@ html, body {
 li
 {
   list-style-type: none;
-  margin-left: 1vw;
+  margin-left    : 1vw;
 }
 
 li:first-child
 {
-  margin:0;
+  margin: 0;
 }
 
 footer
 {
-  padding-top: 5vh;
+  padding-top   : 5vh;
   padding-bottom: 2vh;
 }
 

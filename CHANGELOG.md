@@ -5,3 +5,4 @@
 - The sidebar is added to show information about the service stations.
 - Add group layers.
 - Add icon service stations.
+- Paraguay hospitals are added to the map.
