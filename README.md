@@ -8,6 +8,20 @@ Points of interest Paraguay
 - OSM
 - GeoJSON (data)
 
+# Compatibility
+
+## Web browser
+
+- Mozilla Firefox (GNU/Linux)
+- Mozilla Firefox Mobile (Android)
+- Google Chrome (GNU/Linux)
+
+# Not Compatibility
+
+## Web browser
+
+- Chromium (GNU/Linux)
+
 # Site
 
 - [Link](https://poipy.proyectosbeta.net/)
