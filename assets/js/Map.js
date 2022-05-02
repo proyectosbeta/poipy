@@ -3,8 +3,8 @@ const config = {
     maxZoom: 18,
 };
 const zoom       = 7;
-const lat        = -23.8965407;
-const lng        = -56.9919999;
+let latitude     = -23.8965407;
+let longitude    = -56.9919999;
 const nameFiles  = [
     'station',
     'hospital',
@@ -20,7 +20,7 @@ let markersStationServices;
 let markersHospitals;
 
 const initMap = () => {
-    map = L.map("map", config).setView([lat, lng], zoom);
+    map = L.map("map", config).setView([latitude, longitude], zoom);
 
     baseLayer.addTo(map);
 };
@@ -163,6 +163,16 @@ const addControlMap = (markers) => {
         "&nbsp;<img src='./assets/img/hospital.png' width='24' height='28'>&nbsp;Hospitales": markers[1],
     };
     
+    L.control.locate({
+        locateOptions: {
+            enableHighAccuracy: true,
+            maxZoom           : 13,
+        },
+        strings: {
+            title: "Muéstrame dónde estoy, yo!"
+        },
+        showPopup: false,
+    }).addTo(map);
     L.control.layers(baseMaps, overlayMaps).addTo(map);
 };
 

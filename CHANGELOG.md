@@ -2,6 +2,7 @@
 
 - Update leaflet version to 1.8.0
 - Add responsive design.
+- Add location in the map.
 
 # v.0.0.1
 
