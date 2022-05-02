@@ -21,7 +21,6 @@ html, body {
 
 #map-container {
   padding-top : 20px;
-  padding-left: 10px;
 }
 
 #map {
@@ -30,7 +29,7 @@ html, body {
   height       : 600px;
   width        : 100%;
   box-shadow   : 0 0 10px rgba(0,0,0,0.5);
-  margin       : 5px;
+  margin       : 5px 0px 5px;
 }
 
 #title_side_bar {
@@ -53,7 +52,7 @@ li:first-child
 
 footer
 {
-  padding-top   : 5vh;
+  padding-top   : 2vh;
   padding-bottom: 2vh;
 }
 
@@ -66,6 +65,7 @@ footer
 .container
 {
   background-color: beige;
+  padding-bottom  : 1vh;
 }
 
 .copyright,  .impressum
@@ -91,14 +91,6 @@ footer
     margin-bottom: 1vh;
   }
 }
-
-.sidebar {
-  float           : left;
-  width           : 25%;
-  height          : 960px;
-  background-color: white;
-  color           : #175B81;
-} 
 
 table, th, td {
   margin : 0px 5px;
