@@ -7,3 +7,9 @@ Points of interest Paraguay
 - Leafleat 1.8.0 (map)
 - OSM
 - GeoJSON (data)
+
+# Demo
+
+```
+https://poipy.proyectosbeta.net/
+```
