@@ -12,15 +12,15 @@ Points of interest Paraguay
 
 ## Web browser
 
-- Mozilla Firefox (GNU/Linux)
+- Mozilla Firefox (Microsoft Windows, GNU/Linux)
 - Mozilla Firefox Mobile (Android)
-- Google Chrome (GNU/Linux)
+- Google Chrome (Microsoft Wondows, GNU/Linux)
 
 # Not Compatibility
 
 ## Web browser
 
-- Chromium (GNU/Linux)
+- Chromium (Microsoft Windows, GNU/Linux)
 
 # Site
 
