@@ -1,6 +1,7 @@
 # v.0.1.0
 
 - Update leaflet version to 1.8.0
+- Add responsive design.
 
 # v.0.0.1
 

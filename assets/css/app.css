@@ -16,13 +16,28 @@ html, body {
   height          : 50px;
   background-color: #175B81;
   color           :white;
+  text-align      : center;
+}
+
+#map-container {
+  padding-top : 20px;
+  padding-left: 10px;
 }
 
 #map {
-    width     : auto;
-    height    : 100%;
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
-    margin    : 10px;
+  position     : relative;
+  border-radius: 8px;
+  height       : 600px;
+  width        : 100%;
+  box-shadow   : 0 0 10px rgba(0,0,0,0.5);
+  margin       : 5px;
+}
+
+#title_side_bar {
+  text-align : center;
+  font-size  : 24px;
+  color      :#175B81;
+  font-weight: bold;
 }
 
 li
@@ -83,11 +98,10 @@ footer
   height          : 960px;
   background-color: white;
   color           : #175B81;
-}
+} 
 
 table, th, td {
   margin : 0px 5px;
-	/* border : solid 1px #333; */
 	padding: 2px 4px;
 	font   : 10px Verdana;
 }
@@ -100,10 +114,6 @@ th {
 td {
 	font-size  : 14px;
 	font-weight: normal;
-}
-
-tr {
-	background: white;
 }
 	
 tbody tr:hover {
