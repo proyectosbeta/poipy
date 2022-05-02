@@ -14,7 +14,7 @@ Points of interest Paraguay
 
 - Mozilla Firefox (Microsoft Windows, GNU/Linux)
 - Mozilla Firefox Mobile (Android)
-- Google Chrome (Microsoft Wondows, GNU/Linux)
+- Google Chrome (Microsoft Windows, GNU/Linux)
 
 # Not Compatibility
 
