@@ -8,8 +8,6 @@ Points of interest Paraguay
 - OSM
 - GeoJSON (data)
 
-# Demo
+# Site
 
-```
-https://poipy.proyectosbeta.net/
-```
+- [Link](https://poipy.proyectosbeta.net/)
