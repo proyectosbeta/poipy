@@ -8,6 +8,7 @@ let longitude    = -56.9919999;
 const nameFiles  = [
     'station',
     'hospital',
+    'biggie',
 ];
 const baseLayer = L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
@@ -18,6 +19,7 @@ const baseMaps = {
 let map;
 let markersStationServices;
 let markersHospitals;
+let markersBiggies;
 
 const initMap = () => {
     map = L.map("map", config).setView([latitude, longitude], zoom);
@@ -132,6 +134,56 @@ const onEachFeatureHospital = (feature, layer) => {
     });
 };
 
+const onEachFeatureBiggie = (feature, layer) => {
+    layer.on('click', function (e) {
+        const feature     = e.target.feature;
+        const coordenates = feature.geometry.coordinates;
+        const properties  = feature.properties;
+        const nombre      = properties.nombre;
+        const direccion   = properties.direccion;
+        const responsable = properties.responsabl;
+        const telefono    = properties.telefono;
+        const estado      = properties.estado;
+        const tipo        = properties.tipo;
+    
+        onMapClick(coordenates);
+        
+        // var fieldA       = document.getElementById('pict');
+        // fieldA.innerHTML ='<img src="' +e.target.feature.properties.Logo +'">';
+        
+        // var fieldB       = document.getElementById('pict2');
+        // fieldB.innerHTML = '<img src="' +e.target.feature.properties.Logo +'">';
+        
+        const title_side_bar = document.getElementById('title_side_bar');
+        const field1_1       = document.getElementById('f1field');
+        const field2_1       = document.getElementById('f2field');
+        const field3_1       = document.getElementById('f3field');
+        const field4_1       = document.getElementById('f4field');
+        const field5_1       = document.getElementById('f5field');
+        const field6_1       = document.getElementById('f6field');
+        const field1         = document.getElementById('f1');
+        const field2         = document.getElementById('f2');
+        const field3         = document.getElementById('f3');
+        const field4         = document.getElementById('f4');
+        const field5         = document.getElementById('f5');
+        const field6         = document.getElementById('f6');
+
+        title_side_bar.innerHTML = "Biggies";
+        field1_1.innerHTML       = "Nombre";
+        field2_1.innerHTML       = "Direcci&oacute;n";
+        field3_1.innerHTML       = "Responsable";
+        field4_1.innerHTML       = "Tel&eacute;fono";
+        field5_1.innerHTML       = "Estado";
+        field6_1.innerHTML       = "Tipo";
+        field1.innerHTML         = nombre;
+        field2.innerHTML         = direccion;
+        field3.innerHTML         = responsable;
+        field4.innerHTML         = telefono;
+        field5.innerHTML         = estado;
+        field6.innerHTML         = tipo;
+    });
+};
+
 // Click marker
 let clickmark;
 
@@ -161,6 +213,7 @@ const addControlMap = (markers) => {
     const overlayMaps = {
         "&nbsp;<img src='./assets/img/station.png' width='24' height='28'>&nbsp;Estaciones de servicio": markers[0],
         "&nbsp;<img src='./assets/img/hospital.png' width='24' height='28'>&nbsp;Hospitales": markers[1],
+        "&nbsp;<img src='./assets/img/biggie.png' width='24' height='28'>&nbsp;Biggies": markers[2],
     };
     
     L.control.locate({
@@ -220,6 +273,28 @@ const hospitalLayer = (data) => {
     map.addLayer(markersHospitals);
 };
 
+const biggieLayer = (data) => {
+    const geoJsonLayer = L.geoJson(data, {
+        pointToLayer: function(feature, latlng) {
+            return L.marker(latlng, {
+                icon: L.icon({
+                  iconUrl    : "assets/img/biggie.png",
+                  iconSize   : [24, 28],
+                  iconAnchor : [12, 28],
+                  popupAnchor: [0, -25]
+                }),
+                title: feature.properties.nombre,
+                riseOnHover: true
+              });
+        },
+        onEachFeature: onEachFeatureBiggie
+    });
+    markersBiggies = L.markerClusterGroup();
+
+    markersBiggies.addLayer(geoJsonLayer);
+    map.addLayer(markersBiggies);
+};
+
 const addGeoJsonLayerWithClustering = (element, data) => {
     switch (element){
         case 'station':
@@ -227,6 +302,9 @@ const addGeoJsonLayerWithClustering = (element, data) => {
             break;
         case 'hospital': 
             hospitalLayer(data);
+            break;
+        case 'biggie': 
+            biggieLayer(data);
             break;
     }
 };
@@ -253,6 +331,7 @@ Promise.all(promises).then((results) => {
     const markers = [
         markersStationServices,
         markersHospitals,
+        markersBiggies,
     ];
 
     addControlMap(markers);
