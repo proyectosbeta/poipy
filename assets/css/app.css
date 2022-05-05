@@ -127,3 +127,8 @@ table {
   top        : 11px;
 	left       : 20px;
 }
+
+.navbar-brand img
+{
+  height: 30px;
+}
