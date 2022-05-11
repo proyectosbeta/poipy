@@ -12,15 +12,15 @@
 
 # v.0.1.0
 
-- Update leaflet version to 1.8.0
-- Add responsive design.
-- Add location in the map.
+- Reafactor: leaflet version to 1.8.0
+- Feat: responsive design
+- Feat: location in the map
 
 # v.0.0.1
 
-- Paraguay service stations are added to the map.
-- Add clustering in the service stations.
-- The sidebar is added to show information about the service stations.
-- Add group layers.
-- Add icon service stations.
-- Paraguay hospitals are added to the map.
+- Feat: Paraguay service stations are added to the map.
+- Feat: clustering in the service stations.
+- Feat: The sidebar is added to show information about the service stations.
+- Feat: group layers.
+- Feat: icon service stations.
+- Feat: Paraguay hospitals are added to the map.
