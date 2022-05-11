@@ -1,3 +1,15 @@
+# v.0.2.1
+
+- Fix: Biggie data
+
+# v.0.2.0
+
+- Style: improvement of the 'Downloads' menu
+- Refactor: added scripts section to the head of the index.html file
+- Style: addition of a favicon (temporary)
+- Style: creation of a logo and addition in index.html
+- Feat: addition of Biggie (test), the point on the map does not work
+
 # v.0.1.0
 
 - Update leaflet version to 1.8.0

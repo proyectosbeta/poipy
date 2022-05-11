@@ -3,6 +3,6 @@
 "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
                                                                                 
 "features": [
-{ "type": "Feature", "properties": { "nombre": "Biggie Express - Estrella", "tipo": "SUPERMERCADO", "direccion": "Estrella c\/ Alberdi", "telefono": "0217290300", "responsabl": "Biggie S.A.", "dependeDe": "Biggie S.A.", "estado": "ACTIVO", "codigo": 2, "nombreMuni": "ASUNCIÓN", "codigoMuni": "1", "internet": "SI", "codigoSaa": 18030203, "fechaActiv": "1442232007000", "fechaInact": "null", "nombreDist": "ASUNCION", "codigoDist": 30, "nombreRegi": "CAPITAL", "codigoRegi": 18, "nombreDi_1": "ASUNCION", "id": 28715 }, "geometry": { "type": "Point", "coordinates": [ -25.28138, -57.63605 ] } }
+{ "type": "Feature", "properties": { "nombre": "Biggie Express - Estrella", "tipo": "SUPERMERCADO", "direccion": "Estrella c\/ Alberdi", "telefono": "0217290300", "responsabl": "Biggie S.A.", "dependeDe": "Biggie S.A.", "estado": "ACTIVO", "codigo": 2, "nombreMuni": "ASUNCIÓN", "codigoMuni": "1", "internet": "SI", "codigoSaa": 18030203, "fechaActiv": "1442232007000", "fechaInact": "null", "nombreDist": "ASUNCION", "codigoDist": 30, "nombreRegi": "CAPITAL", "codigoRegi": 18, "nombreDi_1": "ASUNCION", "id": 28715 }, "geometry": { "type": "Point", "coordinates": [ -57.63605, -25.28138 ] } }
 ]
 }
